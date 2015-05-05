@@ -1,0 +1,24 @@
+ # config/cucumber.yml
+##YAML Template
+
+default:  --profile bvt --tags @register,register1,@account_settings,@link_fb_to_sl,@link_tw_to_sl,@lobbing,@predictions_overlay
+html_report: --format progress --format html --out=./results/html_reports/features_report.html
+bvt: --tags @register,@account_settings,@link_fb_to_sl,@link_tw_to_sl,@lobbing
+
+
+register: --tags @register
+account: --tags @account_settings
+twitter: --tags @register_twitter
+link_twitter: --tags @link_tw_to_sl
+facebook: --tags @link_fb_to_sl
+lobbing: --tags @lobbing
+bloging: --tags @bloging
+hyperlinks: --tags @hyperlinks
+searching: --tags @searching
+predictions_overlay: --tags @predictions_overlay
+predictions_tutorial: --tags @predictions_tutorial
+leaderboards: --tags @leaderboards
+join_league_weith_url: --tags @JoinLeagueWithURL
+muted_users: --tags @muted_users
+want_to_get_involved: --tags @want_to_get_involved_modal
+
