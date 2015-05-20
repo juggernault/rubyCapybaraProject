@@ -13,13 +13,19 @@ module AccountElements
   REGISTER_FIRST_NAME = 'register[first_name]'
   REGISTER_LAST_NAME = 'register[last_name]'
   REGISTER_USERNAME  = 'register[username]'
-  USERNAME = 'testuserauto'
-  USERNAME2 = 'usernamerenamed'
+  USERNAME = 'test'
+  USERNAME2 = 'testr'
   DOMAIN   = '@sportlobster.com'
   EMPTY_PAGE_CONTENT_TEXT ='You have not lobbed any content yet.'
   EMPTY_BLOGS_PAGE_CONTENT_OWN_PROFILE ='Write blogs to earn points from likes, comments and shares.'
   EMPTY_PREDICTION_PAGE_OWN_PROFILE = 'Make predictions to earn points and climb the leaderboard.'
   EMPTY_PHOTOS_AND_VIDEOS_OWN_PROFILE ='You have not added any photos or videos to lobs or blogs yet.'
+
+  EMPTY_EMAIL_FIELD_ERROR = 'Email address can not be blank.'
+  EMPTY_PASSOWRD_FIELD_ERROR ='Please give us the password you want to use.'
+  WRONG_EMAIL_ADDRESS_ERROR ="The e-mail address you have entered doesn't appear to be valid, please try again."
+  TOO_SHORT_PASSWORD_ERROR ='Passwords must be at least 6 characters long.
+'
   BLOGS_LINKS = 'Blogs'
   PREDICTIONS_LINK = 'Predictions'
   PHOTOS_AND_VIDEOS_LINK = 'Photos & Videos'
@@ -48,15 +54,21 @@ module AccountElements
   ACCOUNT_INVALID_EMAIL_ADRESS = "The e-mail address you have entered doesn't appear to be valid, please try again."
   ACCOUNT_ALREADY_USED_USERNAME_VALIDATION ='The username you entered is already in use, please select another.'
   ACCOUNT_ALREADY_USED_EMAIL_ADRESS = 'The e-mail address you entered is already in use by another account.'
+  FIRST_NAME_TOO_SHORT_ERROR = 'Please give us your first name.'
+  LAST_NAME_TOO_SHORT_ERROR = 'Please give us your last name.'
+  USERNAME_NAME_TOO_SHORT_ERROR = 'Please give us a username that you would like to use.'
+  FIRSTNAME_SPECIAL_CHARS_VALIDATION ='Your first name contains invalid characters. It should only contain letters, apostrophe or hyphen.'
+  LASTNAME_SPECIAL_CHARS_VALIDATION ='Your last name contains invalid characters. It should only contain letters, apostrophe or hyphen.'
+
   ACCOUNT_LOCATION_TEXT = 'London'
   ACCOUNT_GENDER_DROPDOWN_LIST = 'sl-account-gender'
 
   RENAMED_FIRST_NAME = 'TestUserAuto'
   RENAMED_LAST_NAME = 'TestAutoLastName'
-  RENAMED_USERNAME = 'testuserautoren'
+  RENAMED_USERNAME = 'testren'
   RENAMED_FIRST_NAME_XPATH = "//input[@value='TestUserAuto']"
   RENAMED_LAST_NAME_XPATH = "//input[@value='TestAutoLastName']"
-  RENAMED_USERNAME_XPATH = "//input[@value='testuserautoren']"
+  RENAMED_USERNAME_XPATH = "//input[@value='testren']"
   ACCOUNT_LAST_NAME_TEXT_FIELD ='sl-account-last-name'
   ACCOUNT_USER_NAME_TEXT_FIELD = 'sl-account-username'
   ACCOUNT_EMAIL_TEXT_FIELD = 'sl-account-email'
@@ -81,6 +93,8 @@ module AccountElements
   FANZONE_EMPTY_TEXT = './data/account/empty_fanzones_tab_feed.txt'
   FOLLOWING_EMPTY_TEXT ='./data/account/empty_following_tab_feed.txt'
   ERROR_MESSAGE_SHORT_PASSWORD_PATH ='./data/account/too_short_password.txt'
+  JUST_ONE_FINAL_STEP_WINDOW_PATH = './data/account/just_one_final_step.txt'
+  TOO_LONG_USERNAME_ERROR_MESSAGE = './data/account/username_error_message.txt'
 
 
 

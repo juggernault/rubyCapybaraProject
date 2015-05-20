@@ -21,6 +21,16 @@ module Numbers
 
   end
 
+
+  def write_file_number_generic(filepath,contents)
+    Dir.pwd
+    contents=read_file
+    open(filepath, 'w') { |f|
+      f.puts contents.to_i+1
+    }
+
+  end
+
   def read_file
     contents = File.open("./lib/number.txt", "r"){ |file| file.read }
     return contents
@@ -40,6 +50,15 @@ def write_league_id
     f.puts contents.to_i+1
   }
 
-  end
+end
+
+
+def random_system_time
+  now = Time.now           # Current time
+  now.to_i
+  File.open('./lib/number.txt', 'w') { |file| file.write(now.to_i) }
+
+end
+
 
 

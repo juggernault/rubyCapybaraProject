@@ -492,6 +492,128 @@ end
 
  end
 
+  def check_if_no_email_adress_message_is_displayed
+
+    page.should have_content(EMPTY_EMAIL_FIELD_ERROR)
+
+  end
+
+ def check_if_no_password_error_is_displayed
+
+   page.should have_content(EMPTY_PASSOWRD_FIELD_ERROR)
+
+ end
+
+  def enter_invalid_email_adress
+
+    fill_in EMAIL_REGISTER_FORM , with: 'EMAIL@DDDDD'
+
+  end
+
+  def check_if_invalid_email_adress_error_message_is_displayed
+
+    page.should have_content(WRONG_EMAIL_ADDRESS_ERROR)
+
+  end
+
+
+  def fill_a_short_password(value)
+
+    fill_in PASSWORD_REGISTERD_FORM , with: value
+
+  end
+
+ def check_if_passowrd_6_chars_is_displayed
+
+   page.should have_content(TOO_SHORT_PASSWORD_ERROR)
+
+ end
+
+  def check_if_I_m_on_just_one_final_step
+
+    page.should have_content(read_file_content(JUST_ONE_FINAL_STEP_WINDOW_PATH))
+
+  end
+
+
+  #just one final step error messages
+
+  def check_first_name_error
+    page.should have_content(FIRST_NAME_TOO_SHORT_ERROR)
+
+  end
+
+ def check_last_name_error
+   page.should have_content(LAST_NAME_TOO_SHORT_ERROR)
+
+ end
+
+ def check_username_error_short
+
+   page.should have_content(USERNAME_NAME_TOO_SHORT_ERROR)
+
+ end
+
+ def check_username_error_long
+
+   page.should have_content(read_file_content(TOO_LONG_USERNAME_ERROR_MESSAGE))
+
+ end
+
+  def fill_first_name_with_chars(value)
+
+    fill_in REGISTER_FIRST_NAME , with: value
+
+  end
+
+ def fill_last_name_with_chars(value)
+
+   fill_in REGISTER_LAST_NAME , with: value
+
+ end
+
+
+ def fill_username_with_chars(value)
+
+   fill_in REGISTER_USERNAME , with: value
+
+ end
+
+  def clear_username_field
+
+    fill_in ACCOUNT_USER_NAME_TEXT_FIELD , with: ""
+
+  end
+
+  def check_first_name_special_chars_error
+
+    page.should have_content(FIRSTNAME_SPECIAL_CHARS_VALIDATION)
+
+  end
+
+ def check_last_name_special_chars_error
+
+   page.should have_content(LASTNAME_SPECIAL_CHARS_VALIDATION)
+
+ end
+
+  def first_name_special_chars_error_should_not_be
+
+    page.should_not have_content(FIRSTNAME_SPECIAL_CHARS_VALIDATION)
+
+  end
+
+ def last_name_special_chars_error_should_not_be
+
+   page.should_not have_content(LASTNAME_SPECIAL_CHARS_VALIDATION)
+
+ end
+
+  def clear_username_field_on_register_form
+
+    fill_in REGISTER_USERNAME , with: ""
+
+  end
 
 
 end

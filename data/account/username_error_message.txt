@@ -1,0 +1,1 @@
+The username you have provided is invalid, it should only contain numbers, letters or _ (underscore) and be between 3 and 20 characters long.

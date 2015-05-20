@@ -84,7 +84,7 @@ When(/^I will log out from my account in order to check the autologin presing on
 
   logger.debug "I will log out from my account in order to check the autologin presing on sign up with twitter"
   @account.log_out_from_my_account
-  sleep(5)
+  sleep(60)
 
 
 end

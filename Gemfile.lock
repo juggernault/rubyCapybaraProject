@@ -29,6 +29,11 @@ GEM
       multi_test (>= 0.1.2)
     cucumber-core (1.1.3)
       gherkin (~> 2.12.0)
+    cucumber-rails (1.3.0)
+      capybara (>= 1.1.2)
+      cucumber (>= 1.1.8)
+      nokogiri (>= 1.5.0)
+    database_cleaner (1.4.1)
     diff-lcs (1.1.3)
     ffi (1.9.8)
     gherkin (2.12.2)
@@ -82,7 +87,8 @@ DEPENDENCIES
   capybara-bootstrap-datepicker
   capybara-screenshot
   capybara_minitest_spec
-  cucumber
+  cucumber-rails
+  database_cleaner
   minitest (< 5)
   rspec-rails
   selenium-webdriver

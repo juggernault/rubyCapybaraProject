@@ -93,3 +93,74 @@ Then(/^I should have my following feed empty with the tutorial text$/) do
 
 end
 
+Then(/^I can see the error message that the email address can not be blank$/) do
+
+  @account = Account.new
+
+  @account.check_if_no_email_adress_message_is_displayed
+  logger.debug "I SHOULD SEE THE ERRRr MESSAGE , EMAIL ADRESS CANNOT BE BLANK"
+
+end
+
+Then(/^I can see the error message that the password cannot be blank$/) do
+
+
+  @account.check_if_no_password_error_is_displayed
+  logger.debug "I SHOULD SEE THE ERRRr MESSAGE , password  CANNOT BE BLANK"
+end
+
+Then(/^I can see the error message that the email address is not valid$/) do
+
+  @account.check_if_invalid_email_adress_error_message_is_displayed
+  logger.debug "II should be able to see an error message that the email address is invalid"
+
+end
+
+Then(/^I can see a message that the password should be at least six chars$/) do
+
+  @account.check_if_passowrd_6_chars_is_displayed
+  logger.debug "I can see the error that the passowrd should have at least 6 chars"
+
+end
+
+Then(/^I am on just one final step screen$/) do
+  @account = Account.new
+  @account.check_if_I_m_on_just_one_final_step
+  logger.debug "I should see just one final step window"
+end
+
+Then(/^I should be able to see an error to provide the firstname$/) do
+
+  @account.check_first_name_error
+  logger.debug "I should see and error to provide the first name"
+
+end
+
+Then(/^I should be able to see an error to provide the last name$/) do
+  @account.check_last_name_error
+  logger.debug "I should be able to see an error to provide the last name"
+end
+
+Then(/^I should be able to see an error to provide an username$/) do
+
+  @account.check_username_error_short
+  logger.debug "I am asked to provide an username"
+
+end
+
+Then(/^I should be able to see an error that  username cannot contain more than twenty chars$/) do
+  @account.check_username_error_long
+  logger.debug "I should be able to see that username should not have more than 20 chars"
+end
+
+Then(/^I should see the error message what chars are accepted for firstname and lastname$/) do
+  @account.check_first_name_special_chars_error
+  @account.check_last_name_special_chars_error
+  logger.debug "I should be able to see that username should not have more than 20 chars"
+end
+
+Then(/^I should not see the error validation for those two fields$/) do
+  @account.first_name_special_chars_error_should_not_be
+  @account.last_name_special_chars_error_should_not_be
+  logger.debug "I should be able to see that username should not have more than 20 chars"
+end
