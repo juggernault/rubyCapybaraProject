@@ -178,7 +178,7 @@ end
   def click_home_button
     #click on home button from top nav
 
-    click_on HOME
+    visit(HOME)
     sleep(1)
   end
 

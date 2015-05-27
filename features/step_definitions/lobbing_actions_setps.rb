@@ -37,13 +37,15 @@ end
 When(/^I will click on Lob button$/) do
 
   @lobbing.click_on_lob_button
+  sleep(5)
   logger.debug "I just clicked on Lob button"
 
 end
 
 When(/^I will select my Followers from the drop dropdown$/) do
-
+  @lobbing = Lobbing.new
   @lobbing.click_on_choose_a_fanzone
+  sleep(1)
   @lobbing.select_my_followers
   logger.debug "Seelct my followers from the drop downlist"
 
@@ -53,6 +55,7 @@ When(/^I will reload the page$/) do
 
   @abstractselenium = AbstractSelenium.new
   @abstractselenium.refresh_the_page
+  sleep(5)
   logger.debug "I just reload the page"
 end
 
@@ -86,6 +89,7 @@ Given(/^I will make sure that Im on the fanfeed$/) do
 
   @account = Account.new
   @account.click_home_button
+  sleep(2)
   @account.click_on_fanzones_tab
   logger.debug "I should be on fanzones page"
 
@@ -287,7 +291,186 @@ When(/^I will fill Lob text area with allowed content$/) do
 
   @lobbing = Lobbing.new
   @lobbing.fill_lob_text_area_with_content(LOBBING_TEXT_AREA_CSS,LOB_CONTENT_SPAMMING)
+  sleep(1)
   logger.debug "I will fill lob content used to check the anti spamming message"
+
+end
+
+Then(/^I will click on add content global button$/) do
+
+  @lobbing = Lobbing.new
+  @lobbing.click_add_content_global_button
+  logger.debug "I just clicked on add content global button"
+
+end
+
+Then(/^I will click on lob text area from the add content modal$/) do
+
+   @lobbing.click_on_lob_text_area_within_add_modal
+   logger.debug "I just clicked on lob text area within add content modal"
+
+end
+
+When(/^I will fill lob modal text area with four hundred and ninety nine chars$/) do
+
+  @lobbing.fill_lob_text_area_with_content_lob_modal(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_499_GLOBAL_ADD)
+  logger.debug "I just filled lob text area with content within the global add modal"
+
+end
+
+When(/^I will fill lob modal text area with five hundred  chars$/) do
+
+  @lobbing = Lobbing.new
+  @lobbing.fill_lob_text_area_with_content_lob_modal(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_500_GLOBAL_ADD)
+  logger.debug "I just filled lob text area with 500 chars within the global add modal"
+
+end
+
+When(/^I will fill lob modal text area with five hundred one chars$/) do
+
+  @lobbing = Lobbing.new
+  @lobbing.fill_lob_text_area_with_content_lob_modal(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_501_CHARS_PATH)
+  logger.debug "I just filled lob text area with 501 chars"
+
+end
+
+Then(/^I will clean the text area within the add modal$/) do
+
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.fill_text_area_by_class_css_with_text(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,EMPTY_CONTENT)
+  logger.debug "I JUST FILLED LOB TEXT AREA WITHIN ADD MODAL WITH EMPTY TEXT"
+
+end
+
+Then(/^I will close add content modal$/) do
+
+  @abstractselenium.click_on_class_or_css(CLOSE_ADD_CONTENT_MODAL)
+  logger.debug "I just clicked on close modal button so in the next step I will check if the modal is still opened"
+
+end
+
+When(/^I will fill lob modal text area with special chars$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.fill_css_class_text_area_with_3_parameters_content(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_SPECIAL_CHARS_PATH,GLOBAL_BUTTON_TEXT)
+  logger.debug "I just filled lob text area within global add with special chars"
+
+end
+
+When(/^I will fill lob modal text area with arabic chars$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.fill_css_class_text_area_with_3_parameters_content(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_ARABIC_CONTENT_PATH,GLOBAL_BUTTON_TEXT)
+  logger.debug "I just filled lob text area within global add with arabic chars"
+
+end
+
+When(/^I will fill lob modal text area with unicode chars$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.fill_css_class_text_area_with_3_parameters_content(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_UNICODE_CONTENT_PATH,GLOBAL_BUTTON_TEXT)
+  logger.debug "I just filled lob text area within global add with unicode chars"
+
+end
+
+When(/^I will fill lob modal text area with french chars$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.fill_css_class_text_area_with_3_parameters_content(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_FRENCH_CONTENT_PATH,GLOBAL_BUTTON_TEXT)
+  logger.debug "I just filled lob text area within global add with french chars"
+
+end
+
+When(/^I will fill lob modal text area with allowed chars$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.fill_css_class_text_area_with_3_parameters_content(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_CONTENT_SPAMMING,GLOBAL_BUTTON_TEXT)
+
+end
+
+When(/^I will fill lob modal text area with content that need to be posted to a fanzone$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.fill_css_class_text_area_with_3_parameters_content(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_CONTENT_TO_FANZONE,GLOBAL_BUTTON_TEXT)
+
+end
+
+When(/^I will fill lob modal text area with content that need to be posted to a fanzone that I dont have it on the list$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.fill_css_class_text_area_with_3_parameters_content(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_CONTENT_TO_FANZONE2,GLOBAL_BUTTON_TEXT)
+  logger.debug "I just filled lob text area within global add with content that will be posted to a fanzone that is not in my list"
+
+
+end
+
+When(/^I will fill lob modal text area with content from scores page$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.fill_text_area_by_class_css_with_text_and_unique_number(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_POSTED_FROM_SCORES_PAGE)
+
+end
+
+
+
+When(/^I will fill lob modal text area with content from predict page$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.fill_text_area_by_class_css_with_text_and_unique_number(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_POSTED_FROM_PREDICT_PAGE)
+
+end
+
+
+
+When(/^I will fill lob modal text area with content from discover page$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.fill_text_area_by_class_css_with_text_and_unique_number(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_POSTED_FROM_DISCOVER_PAGE)
+
+end
+
+
+
+When(/^I will fill lob modal text area with content from account page$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.fill_text_area_by_class_css_with_text_and_unique_number(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_POSTED_FROM_ACCOUNT_PAGE)
+
+end
+
+
+
+When(/^I will fill lob modal text area with content from account email notifications page$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.fill_text_area_by_class_css_with_text_and_unique_number(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_POSTED_FROM_ACCOUNT_EMAIL_PAGE)
+
+end
+
+When(/^I will fill lob modal text area with content from account friends page$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.fill_text_area_by_class_css_with_text_and_unique_number(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_POSTED_FROM_ACCOUNT_FRIENDS_PAGE)
+  logger.debug "I just fill lob content from account friends page"
+
+end
+
+When(/^I will fill lob modal text area with content from account muted users page$/) do
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.fill_text_area_by_class_css_with_text_and_unique_number(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_POSTED_FROM_ACCOUNT_MUTED_PAGE)
+  logger.debug "I just fill lob content from mutted users tab"
+end
+
+
+When(/^I will attach an image to the lob$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.attach_image_to_lob(CAMERA_BUTTON,IMAGE_FOR_LOB)
+  sleep(2)
+
+
+  logger.debug "I just attached the image to the lob"
 
 end
 

@@ -5,6 +5,7 @@ module LobbingElements
   LOBBING_TEST_USERNAME = 'lobuser'
   LOBBING_TEST_DOMAIN = '@sportlobster.com'
   LOBBING_TEXT_AREA_CSS = '#sl-new-post-form .richtextarea'
+  LOBBING_TEXT_AREA_ADD_CONTENT_MODAL = '.sl-dialog.add-content #sl-new-post-form .richtextarea'
   LOBBING_LOB_BUTTON = 'Lob'
   LOBBING_LOB_BUTTON_DISABLED_CSS = '#sl-new-post-form button[type=submit]:disabled'
   LOBBING_LOB_BUTTON_ENABLED_CSS = '#sl-new-post-form button[type=submit]'
@@ -19,6 +20,22 @@ module LobbingElements
   ANTI_SPAM_LOBBING_MESSAGE ="You've already added this content"
   CHOOSE_FANZONE_LIST_ELEMENTS = '.taxonomy-search-dropdown .dropdown-menu .selectable-element .sl-taxonomy-logo'
   SEARCH_ALL_FANZONE_FIELD = '.taxonomy-search-dropdown .search-input'
+  GLOBAL_BUTTON_TEXT ='global button'
+  CLOSE_ADD_CONTENT_MODAL ='.sl-close-overlay a'
+  CAMERA_BUTTON='sl-post-photo-input'
+
+  EMPTY_CONTENT =""
+  LOB_POSTED_FROM_SCORES_PAGE ='AUTOMATED LOB POSTED FROM SCORES PAGE'
+  LOB_POSTED_FROM_DISCOVER_PAGE='AUTOMATED LOB POSTED FROM DISCOVER PAGE'
+  LOB_POSTED_FROM_PREDICT_PAGE ='AUTOMATED LOB POSTED FROM PREDICT PAGE'
+  LOB_POSTED_FROM_ACCOUNT_PAGE ='AUTOMATED LOB POSTED FROM ACCOUNT PAGE'
+  LOB_POSTED_FROM_ACCOUNT_EMAIL_PAGE ='AUTOMATED LOB POSTED FROM ACCOUNT EMAIL PAGE'
+  LOB_POSTED_FROM_ACCOUNT_FRIENDS_PAGE ='AUTOMATED LOB POSTED FROM ACCOUNT FRIENDS PAGE'
+  LOB_POSTED_FROM_ACCOUNT_MUTED_PAGE ='AUTOMATED LOB POSTED FROM ACCOUNT MUTED PAGE'
+  IMAGE_1646x1230='1646x1230'
+  IMAGE_800_600='800X600'
+  IMAGE_PREVIEW_SELECTOR ='#sl-new-post-form .image-preview .remove-image img'
+
 
   #end of elements delcarations
 
@@ -38,5 +55,12 @@ module LobbingElements
   LOB_UNICODE_CONTENT_PATH = './data/lobbing/unicode_lob.txt'
   LOB_POSTED_FROM_FANZONE_SCREEN = './data/lobbing/lob_posted_from_fanzone.txt'
   LOB_CONTENT_SPAMMING = './data/lobbing/lob_content_spamming.txt'
+  LOB_499_GLOBAL_ADD ='./data/lobbing/lob_499_global_add.txt'
+  LOB_500_GLOBAL_ADD ='./data/lobbing/lob_500_global_add.txt'
+  IMAGE_FOR_LOB_1646X1230_JPEG_PATH ='./data/lobbing/image/1646x1230.jpg'
+  IMAGE_FOR_LOB_800X600_PNG_PATH='./data/lobbing/image/png_800_600.png'
+
+
+#/Users/teddymihali/Documents/ruby_automation/rubyworkspace/sportlobster-website/sportlobster-website
 
 end

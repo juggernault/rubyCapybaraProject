@@ -206,8 +206,169 @@ Then(/^I should see and error message that the lob cannot be posted$/) do
 end
 
 
+Then(/^I will check if the four hundred and ninety nine chars lob has been posted from the modal$/) do
 
+  @lobbing = Lobbing.new
+  @lobbing.check_content_for_a_specific_lob_within_certains_feed(LOB_499_GLOBAL_ADD)
+  logger.debug "I will check if my 499 lob is displayed in the feed"
 
+end
 
+Then(/^I should not be able to see my four hundred and ninety nine chars lob  posted from the modal$/) do
 
+  @lobbing.page_should_not_have_content_in_a_specific_feed(LOB_499_GLOBAL_ADD)
+  logger.debug "Posted lob is not displayed within the following feed because I'm not follow any users"
 
+end
+
+Then(/^I will check if the five hundred chars lob has been posted from the modal$/) do
+
+  @lobbing = Lobbing.new
+  @lobbing.check_content_for_a_specific_lob_within_certains_feed(LOB_500_GLOBAL_ADD)
+  logger.debug "I will check if my 500 lob is displayed in the feed"
+
+end
+
+Then(/^I should not be able to see my five hundred chars lob  posted from the modal$/) do
+
+  @lobbing.page_should_not_have_content_in_a_specific_feed(LOB_500_GLOBAL_ADD)
+  logger.debug "Posted lob of 500 chars from modal is not displayed within the following feed because I'm not follow any users"
+
+end
+
+Then(/^Add content modal should not be opened anymore$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.class_css_element_is_not_displayed(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL)
+  logger.debug "I just checked if add content modal is still displayed , so is not"
+
+end
+
+Then(/^I will check if the special chars lob has been posted from the modal$/) do
+
+  @abstractselenium.assert_css_class_text_area_with_3_parameters_content(LOB_SPECIAL_CHARS_PATH,GLOBAL_BUTTON_TEXT)
+  logger.debug "I just checked if special chars has been posted from add content modal"
+
+end
+
+Then(/^I should not be able to see my special chars lob  posted from the modal$/) do
+
+  @abstractselenium.assert_not_css_class_text_area_with_3_parameters_content(LOB_SPECIAL_CHARS_PATH,GLOBAL_BUTTON_TEXT)
+  logger.debug "I just checked if the lob is displayed on following feed and is not"
+
+end
+
+Then(/^I will check if the arabic chars lob has been posted from the modal$/) do
+
+  @abstractselenium.assert_css_class_text_area_with_3_parameters_content(LOB_ARABIC_CONTENT_PATH,GLOBAL_BUTTON_TEXT)
+  logger.debug "I just checked if arabic chars has been posted from add content modal"
+
+end
+
+Then(/^I should not be able to see my arabic chars lob posted from the modal$/) do
+
+  @abstractselenium.assert_not_css_class_text_area_with_3_parameters_content(LOB_ARABIC_CONTENT_PATH,GLOBAL_BUTTON_TEXT)
+  logger.debug "I just checked if the lob with arabic chars is displayed on following feed and is not"
+
+end
+
+Then(/^I will check if the unicode chars lob has been posted from the modal$/) do
+
+  @abstractselenium.assert_css_class_text_area_with_3_parameters_content(LOB_UNICODE_CONTENT_PATH,GLOBAL_BUTTON_TEXT)
+  logger.debug "I just checked if unicode chars has been posted from add content modal"
+
+end
+
+Then(/^I should not be able to see my unicode chars lob posted from the modal$/) do
+
+  @abstractselenium.assert_not_css_class_text_area_with_3_parameters_content(LOB_UNICODE_CONTENT_PATH,GLOBAL_BUTTON_TEXT)
+  logger.debug "I just checked if the lob with unicode chars is displayed on following feed and is not"
+
+end
+
+Then(/^I will check if the french chars lob has been posted from the modal$/) do
+
+  @abstractselenium.assert_css_class_text_area_with_3_parameters_content(LOB_FRENCH_CONTENT_PATH,GLOBAL_BUTTON_TEXT)
+  logger.debug "I just checked if french chars has been posted from add content modal"
+
+end
+
+Then(/^I should not be able to see my french chars lob posted from the modal$/) do
+
+  @abstractselenium.assert_not_css_class_text_area_with_3_parameters_content(LOB_FRENCH_CONTENT_PATH,GLOBAL_BUTTON_TEXT)
+  logger.debug "I just checked if the lob with french chars is displayed on following feed and is not"
+
+end
+
+Then(/^I will check if the content has been posted to the fan feed$/) do
+
+  @abstractselenium.assert_css_class_text_area_with_3_parameters_content(LOB_CONTENT_TO_FANZONE,GLOBAL_BUTTON_TEXT)
+  logger.debug "I just checked if lob has been posted to fanzne feed from add content modal"
+
+end
+
+Then(/^I should be able to see my recent post added from global add to be visible$/) do
+
+  @abstractselenium.assert_css_class_text_area_with_3_parameters_content(LOB_CONTENT_TO_FANZONE,GLOBAL_BUTTON_TEXT)
+  logger.debug "I just checked if lob posted to fanzone using global add , is displayed on home feed"
+
+end
+
+Then(/^I should be able to see my lob posted using global add button within the WEST HAM fanzone feed$/) do
+
+  @abstractselenium.assert_css_class_text_area_with_3_parameters_content(LOB_CONTENT_TO_FANZONE2,GLOBAL_BUTTON_TEXT)
+  logger.debug "I just checked if lob posted to fanzone using global add , is displayed on home feed"
+
+end
+
+Then(/^I will check if the West ham lob has been posted on the fanfeed using global add button$/) do
+
+  @abstractselenium.assert_css_class_text_area_with_3_parameters_content(LOB_CONTENT_TO_FANZONE2,GLOBAL_BUTTON_TEXT)
+  logger.debug "I just checked if lob posted to fanzone using global add , is displayed on home feed"
+
+end
+
+Then(/^I will check if the lob posted from scores page has been posted$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.check_if_page_has_content_unique_number(LOB_POSTED_FROM_SCORES_PAGE)
+
+end
+
+Then(/^I will check if the lob posted from predict page has been posted$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.check_if_page_has_content_unique_number(LOB_POSTED_FROM_PREDICT_PAGE)
+
+end
+
+Then(/^I will check if the lob posted from discover page has been posted$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.check_if_page_has_content_unique_number(LOB_POSTED_FROM_DISCOVER_PAGE)
+
+end
+
+Then(/^I will check if the lob posted from account page has been posted$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.check_if_page_has_content_unique_number(LOB_POSTED_FROM_ACCOUNT_PAGE)
+
+end
+
+Then(/^I will check if the lob posted from account email notifications page has been posted$/) do
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.check_if_page_has_content_unique_number(LOB_POSTED_FROM_ACCOUNT_EMAIL_PAGE)
+end
+
+Then(/^I will check if the lob posted from account friends page has been posted$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.check_if_page_has_content_unique_number(LOB_POSTED_FROM_ACCOUNT_FRIENDS_PAGE)
+
+end
+
+Then(/^I will check if the lob posted from account muted users page has been posted$/) do
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.check_if_page_has_content_unique_number(LOB_POSTED_FROM_ACCOUNT_MUTED_PAGE)
+end

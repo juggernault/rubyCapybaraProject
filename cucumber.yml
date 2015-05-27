@@ -23,3 +23,5 @@ lobbing: --tags @lobbing
 #muted_users: --tags @muted_users
 #want_to_get_involved: --tags @want_to_get_involved_modal
 test: --tags @test
+navigation: --tags @navigation
+scores: --tags @scores

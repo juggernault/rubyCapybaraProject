@@ -99,19 +99,21 @@ Feature: Posting lobs and blogs
       And I will reload the page
       Then I will check if the special chars lob has been posted
 
-    Scenario: Post a lob second time should be an anti spamming message
-      Given I will make sure that Im on the fanfeed
-      When I click on Lob text area
-      When I will fill Lob text area with allowed content
-      And I will select my Followers from the drop dropdown
-      And I will click on Lob button
-      When I click on Lob text area
-      When I will fill Lob text area with allowed content
-      And I will select my Followers from the drop dropdown
-      And I will click on Lob button
-      Then I can see an error message that the lob has been posted
-      Then I will observe lob button and should be disabled
-      And I will clean the text area
+  Scenario: Post a lob second time should be an anti spamming message
+    Given I will make sure that Im on the fanfeed
+    When I click on Lob text area
+    When I will fill Lob text area with allowed content
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button
+    When I click on Lob text area
+    And I will clean the text area
+    When I click on Lob text area
+    When I will fill Lob text area with allowed content
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button
+    Then I can see an error message that the lob has been posted
+    Then I will observe lob button and should be disabled
+    And I will clean the text area
 
     Scenario:Post a lob with arabic chars , should work
       Given I will make sure that Im on the fanfeed
@@ -136,6 +138,10 @@ Feature: Posting lobs and blogs
      And I will select my Followers from the drop dropdown
      And I will click on Lob button
      Then I will check if the unicode chars lob has been posted
+
+     ############################
+     #posting lobs to fanzone
+     ############################
 
    Scenario:Post a lob to a fanzone and check if the lob is displayed within the fanzone feed
      Given I will make sure that Im on the fanfeed
@@ -195,11 +201,6 @@ Feature: Posting lobs and blogs
     And I will reload the page
     Then I will check if the lob of 501 chars has been posted, shouldn't be posted
 
-  # know issue on fanzone view , this scenatio will fail at the last step because after I post the special chars
-  #I'm checking if the lob content is in the feed ,and not all chars has been posted, "<>" signs are not displayed within the lob
-  # lob content is : abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|
-  #you can find the file under : LOB_POSTED_FROM_FANZONE_SCREEN = './data/lobbing/lob_posted_from_fanzone.txt'
-
   Scenario: Post a lob with special chars from the taxonomy screen should work
     Given I will make sure that Im on the fanfeed
     When I will click on Join fanzone general button
@@ -212,7 +213,7 @@ Feature: Posting lobs and blogs
     And I will reload the page
     Then I will check if the special chars lob has been posted
 
-  Scenario: Post a lob twice within the fanzone view , should fai
+  Scenario: Post a lob twice within the fanzone view , should fail
     Given I will make sure that Im on the fanfeed
     When I will click on Join fanzone general button
     And I will search for Club Brugge
@@ -221,6 +222,7 @@ Feature: Posting lobs and blogs
     When I click on Lob text area
     When I will fill Lob text area with allowed content
     And I will click on Lob button
+    And I will reload the page
     When I click on Lob text area
     When I will fill Lob text area with allowed content
     And I will click on Lob button
@@ -264,6 +266,253 @@ Feature: Posting lobs and blogs
     And I will reload the page
     Then I will check if the arabic chars lob has been posted
 
-  Scenario: Check if previus posted lob is displayed on home feed
+  Scenario: Check if previous posted lob is displayed on home feed
       Given I will make sure that Im on the fanfeed
       Then I will check if the arabic chars lob has been posted
+
+     ############################
+     #posting lobs from add content general button
+     ############################
+
+  Scenario: Post a lob of 499 chars from add global button, should work
+      Given I will make sure that Im on the fanfeed
+      Then I will click on add content global button
+      And I will click on lob text area from the add content modal
+      When I will fill lob modal text area with four hundred and ninety nine chars
+      And I will select my Followers from the drop dropdown
+      And I will click on Lob button
+      And I will reload the page
+      Then I will check if the four hundred and ninety nine chars lob has been posted from the modal
+      When I will click on Following tab
+      Then I should not be able to see my four hundred and ninety nine chars lob  posted from the modal
+
+  Scenario: Post a lob of 500 chars from add global button, should work
+     Given I will make sure that Im on the fanfeed
+     Then I will click on add content global button
+     And I will click on lob text area from the add content modal
+     When I will fill lob modal text area with five hundred  chars
+     And I will select my Followers from the drop dropdown
+     And I will click on Lob button
+     And I will reload the page
+     Then I will check if the five hundred chars lob has been posted from the modal
+     When I will click on Following tab
+     Then I should not be able to see my five hundred chars lob  posted from the modal
+
+  Scenario: Try to post a lob with 501 chars triggering lob add content by clicking on add content global button
+    Given I will make sure that Im on the fanfeed
+    Then I will click on add content global button
+    And I will click on lob text area from the add content modal
+    When I will fill lob modal text area with five hundred one chars
+    And I will select my Followers from the drop dropdown
+    Then I will observe lob button and should be disabled
+    And I will clean the text area within the add modal
+    And I will close add content modal
+    Then Add content modal should not be opened anymore
+
+  Scenario: Post a lob with special chars from add content global modal and should work
+    Given I will make sure that Im on the fanfeed
+    Then I will click on add content global button
+    And I will click on lob text area from the add content modal
+    When I will fill lob modal text area with special chars
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button
+    And I will reload the page
+    Then I will check if the special chars lob has been posted from the modal
+    When I will click on Following tab
+    Then I should not be able to see my special chars lob  posted from the modal
+
+  Scenario: Post a lob with arabic chars from add content global modal and should work
+    Given I will make sure that Im on the fanfeed
+    Then I will click on add content global button
+    And I will click on lob text area from the add content modal
+    When I will fill lob modal text area with arabic chars
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button
+    And I will reload the page
+    Then I will check if the arabic chars lob has been posted from the modal
+    When I will click on Following tab
+    Then I should not be able to see my arabic chars lob posted from the modal
+
+  Scenario: Post a lob with unicode chars from add content global modal and should work
+    Given I will make sure that Im on the fanfeed
+    Then I will click on add content global button
+    And I will click on lob text area from the add content modal
+    When I will fill lob modal text area with unicode chars
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button
+    And I will reload the page
+    Then I will check if the unicode chars lob has been posted from the modal
+    When I will click on Following tab
+    Then I should not be able to see my unicode chars lob posted from the modal
+
+  Scenario: Post a lob with french chars from add content global modal and should work
+    Given I will make sure that Im on the fanfeed
+    Then I will click on add content global button
+    And I will click on lob text area from the add content modal
+    When I will fill lob modal text area with french chars
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button
+    And I will reload the page
+    Then I will check if the french chars lob has been posted from the modal
+    When I will click on Following tab
+    Then I should not be able to see my french chars lob posted from the modal
+
+  Scenario: Post a lob second time from blobal add button should be an anti spamming message
+    Given I will make sure that Im on the fanfeed
+    Then I will click on add content global button
+    And I will click on lob text area from the add content modal
+    When I will fill lob modal text area with allowed chars
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button
+    Then I will click on add content global button
+    And I will click on lob text area from the add content modal
+    When I will fill lob modal text area with allowed chars
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button
+    Then I can see an error message that the lob has been posted
+    Then I will observe lob button and should be disabled
+    And I will close add content modal
+    Then Add content modal should not be opened anymore
+
+
+  #####################################################
+  #post lobs to fanzone using global add content button
+  #####################################################
+
+ Scenario: Post a lob to a fanzone using global add button and check if the lob is displayed within the fanzone feed
+   Given I will make sure that Im on the fanfeed
+   Then I will click on add content global button
+   And I will click on lob text area from the add content modal
+   When I will fill lob modal text area with content that need to be posted to a fanzone
+   And I will select NBA fanzone from the list
+   And I will click on Lob button
+   Then I will check if the content has been posted to the fan feed
+   When I will havigate to the NBA fanzone
+   Then I should be able to see my recent post added from global add to be visible
+
+  Scenario:Search for a fanzone and Post the lob to the fanzone using global add button and check if the lob is displayed within the fanzone feed
+    Given I will make sure that Im on the fanfeed
+    Then I will click on add content global button
+    And I will click on lob text area from the add content modal
+    When I will fill lob modal text area with content that need to be posted to a fanzone that I dont have it on the list
+    And I will search for West Ham united fanzone
+    And I will select West Ham United fanzone from the list
+    And I will click on Lob button
+    Then I will check if the West ham lob has been posted on the fanfeed using global add button
+    When I will navigate to the West Ham united fanzone
+    Then I should be able to see my lob posted using global add button within the WEST HAM fanzone feed
+
+
+    ################################################################
+  #navigate to scores page and post a lob using global add button
+  ################################################################
+
+  Scenario: I will navigate to Scores page and I will post a lob using global add button
+    Given I will navigate to scores page
+    Then I will click on add content global button
+    And I will click on lob text area from the add content modal
+    When I will fill lob modal text area with content from scores page
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button
+    Given I will make sure that Im on the fanfeed
+    Then I will check if the lob posted from scores page has been posted
+
+  ################################################################
+  #navigate to predict page and post a lob using global add button
+  ################################################################
+
+  Scenario: I will navigate to predict page and I will post a lob using global add button
+    Given I will navigate to Predict page
+    Then I will click on add content global button
+    And I will click on lob text area from the add content modal
+    When I will fill lob modal text area with content from predict page
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button
+    Given I will make sure that Im on the fanfeed
+    Then I will check if the lob posted from predict page has been posted
+
+     ################################################################
+  #navigate to discover page and post a lob using global add button
+  ################################################################
+
+  Scenario: I will navigate to discover page and I will post a lob using global add button
+    Given I will navigate to discover page
+    Then I will click on add content global button
+    And I will click on lob text area from the add content modal
+    When I will fill lob modal text area with content from discover page
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button
+    Given I will make sure that Im on the fanfeed
+    Then I will check if the lob posted from discover page has been posted
+
+         ################################################################
+  #navigate to account page and post a lob using global add button
+  ################################################################
+
+  Scenario: I will navigate to account page and I will post a lob using global add button
+    Given I will navigate to Account page
+    Then I will click on add content global button
+    And I will click on lob text area from the add content modal
+    When I will fill lob modal text area with content from account page
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button
+    Given I will make sure that Im on the fanfeed
+    Then I will check if the lob posted from account page has been posted
+
+
+         ################################################################
+  #navigate to account/ email notification page and post a lob using global add button
+  ################################################################
+
+  Scenario: I will navigate to account/ email notification page and I will post a lob using global add button
+    Given I will navigate to account email notifications  page
+    Then I will click on add content global button
+    And I will click on lob text area from the add content modal
+    When I will fill lob modal text area with content from account email notifications page
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button
+    Given I will make sure that Im on the fanfeed
+    Then I will check if the lob posted from account email notifications page has been posted
+
+             ################################################################
+  #navigate to account/ friends page and post a lob using global add button
+  ################################################################
+
+  Scenario: I will navigate to account/ friends page  and I will post a lob using global add button
+    Given I will navigate to account friends  page
+    Then I will click on add content global button
+    And I will click on lob text area from the add content modal
+    When I will fill lob modal text area with content from account friends page
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button
+    Given I will make sure that Im on the fanfeed
+    Then I will check if the lob posted from account friends page has been posted
+
+                 ################################################################
+  #navigate to account/ muted page and post a lob using global add button
+  ################################################################
+
+  Scenario: I will navigate to account/ muted users page  and I will post a lob using global add button
+    Given I will navigate to account muted users page
+    Then I will click on add content global button
+    And I will click on lob text area from the add content modal
+    When I will fill lob modal text area with content from account muted users page
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button
+    Given I will make sure that Im on the fanfeed
+    Then I will check if the lob posted from account muted users page has been posted
+
+           ################################################################
+  #Posting images
+  ################################################################
+
+  Scenario: Posting a lob just image
+    Given I'm on the home feed
+    And I can see the lob text area with the text placeholder in to it
+    When I click on Lob text area
+    When I will attach an image to the lob
+    Then I will check if the image has been attached within the lob text area
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button
+    And I will reload the page
+    Then I will check if the image has been posted

@@ -32,7 +32,7 @@ module AccountElements
   FOLLOWING_USERS = 'Following'
   SPORTLOBSTER_OFFICIAL ='Sportlobster Official'
   SPORTLOBSTER_OFFICIAL_USER_NAME ='@sportlobsterofficial'
-  HOME = 'Feed'
+  HOME = 'fanfeed'
 
   FANZONES_TAB = 'FANZONES'
   FOLLOWING_TAB ='FOLLOWING'

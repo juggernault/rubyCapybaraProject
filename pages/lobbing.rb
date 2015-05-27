@@ -312,6 +312,14 @@ end
 
   end
 
+  #generic method to assert that a specific content is not on the feed
+  #within the geric method I user the read_file method and convert the number into string because this is the way how we post it
+
+  def page_should_not_have_content_in_a_specific_feed(content_file_variable)
+
+    page.should_not have_content(read_file_content(content_file_variable) + read_file.to_s)
+
+  end
 
 
   #search for westham united within chosee a fanzone drop downlist
@@ -330,6 +338,30 @@ end
   def fill_lob_text_area_with_content(lobTextArea,lobContent)
 
     find(lobTextArea).set(read_file_content(lobContent) + read_file.to_s)
+
+  end
+
+  #click on add content global button
+
+  def click_add_content_global_button
+
+    find(ADD_LOB_GLOBAL_BUTTON).click
+
+  end
+
+  #fill lob text area from add content modal with content, generic method
+
+  def fill_lob_text_area_with_content_lob_modal(lobTextArea,lobContent)
+
+    find(lobTextArea).set(read_file_content(lobContent) + read_file.to_s)
+
+  end
+
+  #click on lob text area within the add content modal
+
+  def click_on_lob_text_area_within_add_modal
+
+    find(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL).click
 
   end
 

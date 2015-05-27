@@ -55,7 +55,7 @@ class JoinFanzone
   #scroll fanzones list with 300 px
   def scroll_fanzons_list_content_300_px
 
-    page.execute_script('window.scrollTo(300, 800);')
+    page.execute_script("$('ul[data-results]').scrollTop('300')")
 
   end
 
