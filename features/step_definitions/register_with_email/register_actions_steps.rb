@@ -4,6 +4,7 @@ Given(/^The user has opened the discover page$/) do
   @account = Account.new
   logger.debug "Open discover  page"
   @account.visit_discoverpage
+  sleep(3)
 end
 
 When(/^I click on Join with email button$/) do

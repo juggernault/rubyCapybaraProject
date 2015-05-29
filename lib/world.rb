@@ -7,6 +7,7 @@ require './pages/account'
 require 'selenium/client'
 require 'minitest/autorun'
 
+
 class World
     include Capybara::DSL
   include Numbers
@@ -26,7 +27,9 @@ end
 
 Capybara.register_driver(:chrome) { |app| Capybara::Selenium::Driver.new(app, browser: :chrome) }
 Capybara.register_driver(:firefox) { |app| Capybara::Selenium::Driver.new(app, browser: :firefox) }
-Capybara.register_driver(:webkit)  {|app| Capybara::Selenium::Driver.new(app, browser: :webkit)}
+
+
+
 =begin
 @selenium = Selenium::Client::Driver.new \
       :host => "localhost",
@@ -35,10 +38,6 @@ Capybara.register_driver(:webkit)  {|app| Capybara::Selenium::Driver.new(app, br
       :url => STAGING,
       :timeout_in_second => 60
 =end
-
-#Capybara::Screenshot.autosave_on_failure = false
-
-
 
 # Setup Capybara
 Capybara.configure do |config|
@@ -53,8 +52,7 @@ Capybara.configure do |config|
   PRODUCTION ='http://sportlobster.com'
 
   #end of env declaration
-
-  config.default_wait_time = 15
+  config.default_wait_time = 30
   config.run_server             = false
   config.app_host               = QA2
   config.ignore_hidden_elements = true
@@ -67,11 +65,14 @@ Capybara.configure do |config|
 end
  Capybara.use_default_driver
 
+
 AfterConfiguration do
-  #random_system_time
+
   window = Capybara.current_session.driver.browser.manage.window
-  window.resize_to(1250, 800)
+  window.resize_to(1250, 1000)
   random_system_time
+
+
 end
 
 

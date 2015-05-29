@@ -35,9 +35,9 @@ When(/^I will fill Lob text area with one hundred chars$/) do
 end
 
 When(/^I will click on Lob button$/) do
-
+  @lobbing = Lobbing.new
+  @abstractselenium = AbstractSelenium.new
   @lobbing.click_on_lob_button
-  sleep(5)
   logger.debug "I just clicked on Lob button"
 
 end
@@ -52,7 +52,7 @@ When(/^I will select my Followers from the drop dropdown$/) do
 end
 
 When(/^I will reload the page$/) do
-
+  sleep(5)
   @abstractselenium = AbstractSelenium.new
   @abstractselenium.refresh_the_page
   sleep(5)
@@ -183,17 +183,18 @@ When(/^I will select NBA fanzone from the list$/) do
   @lobbing = Lobbing.new
   @lobbing.click_on_choose_a_fanzone
   sleep(2)
-  logger.debug "I will just execute the script"
   @lobbing.click_and_choose_a_specific_taxonomy(NBA_LEAGUE_TEXT)
   logger.debug "I've selected NBA fanzone from the list"
 
 end
 
-When(/^I will havigate to the NBA fanzone$/) do
-
+When(/^I will navigate to the NBA fanzone$/) do
+  @abstractselenium = AbstractSelenium.new
   @joinfanzone = JoinFanzone.new
   @lobbing = Lobbing.new
   @joinfanzone.navigate_to_NBA_fanzone
+  sleep(3)
+  @abstractselenium.wait_for_ajax
   logger.debug "I will navigate to NBA fanzone"
 
 end
@@ -221,6 +222,7 @@ end
 
 When(/^I will navigate to the West Ham united fanzone$/) do
 
+  @abstractselenium = AbstractSelenium.new
   @joinfanzone = JoinFanzone.new
   @lobbing = Lobbing.new
   @joinfanzone.click_on_join_fanzone_general_button
@@ -228,7 +230,8 @@ When(/^I will navigate to the West Ham united fanzone$/) do
   @joinfanzone.search_for_fanzone_within_Join_fanzones_screen(SEARCH_FANZONES_FIELD_CSS_SELECTOR,WEST_HAM_UNITED_LEAGUE)
   sleep(1)
   @joinfanzone.click_on_a_specific_fanzone_within_join_fanzone_panel(WEST_HAM_UNITED_LEAGUE_CLASS_XPATH)
-
+  sleep(3)
+  @abstractselenium.wait_for_ajax
   logger.debug "I just landed on westham fanzone"
 
 end
@@ -409,7 +412,7 @@ When(/^I will fill lob modal text area with content from scores page$/) do
 
   @abstractselenium = AbstractSelenium.new
   @abstractselenium.fill_text_area_by_class_css_with_text_and_unique_number(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_POSTED_FROM_SCORES_PAGE)
-
+  logger.debug "I just filled in the lob area with content that will be posted from scores page"
 end
 
 
@@ -418,7 +421,7 @@ When(/^I will fill lob modal text area with content from predict page$/) do
 
   @abstractselenium = AbstractSelenium.new
   @abstractselenium.fill_text_area_by_class_css_with_text_and_unique_number(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_POSTED_FROM_PREDICT_PAGE)
-
+  logger.debug "I just filled in the lob area with content that will be posted from predict page"
 end
 
 
@@ -427,7 +430,7 @@ When(/^I will fill lob modal text area with content from discover page$/) do
 
   @abstractselenium = AbstractSelenium.new
   @abstractselenium.fill_text_area_by_class_css_with_text_and_unique_number(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_POSTED_FROM_DISCOVER_PAGE)
-
+  logger.debug "I just filled in the lob area with content that will be posted from discover page"
 end
 
 
@@ -436,7 +439,7 @@ When(/^I will fill lob modal text area with content from account page$/) do
 
   @abstractselenium = AbstractSelenium.new
   @abstractselenium.fill_text_area_by_class_css_with_text_and_unique_number(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_POSTED_FROM_ACCOUNT_PAGE)
-
+  logger.debug "I just filled in the lob area with content that will be posted from account page"
 end
 
 
@@ -445,7 +448,7 @@ When(/^I will fill lob modal text area with content from account email notificat
 
   @abstractselenium = AbstractSelenium.new
   @abstractselenium.fill_text_area_by_class_css_with_text_and_unique_number(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_POSTED_FROM_ACCOUNT_EMAIL_PAGE)
-
+  logger.debug "I just filled in the lob area with content that will be posted from account email notification page"
 end
 
 When(/^I will fill lob modal text area with content from account friends page$/) do
@@ -466,14 +469,99 @@ end
 When(/^I will attach an image to the lob$/) do
 
   @abstractselenium = AbstractSelenium.new
-  @abstractselenium.attach_image_to_lob(CAMERA_BUTTON,IMAGE_FOR_LOB)
-  sleep(2)
-
-
-  logger.debug "I just attached the image to the lob"
+  @abstractselenium.attach_image_to_lob(CAMERA_BUTTON,IMAGE_FOR_LOB_1646X1230_JPEG_PATH)
+  sleep(1)
+  logger.debug "I just attached the image with 1646x1230 px on the lob"
 
 end
 
+When(/^I will attach an PNG image to the lob$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.attach_image_to_lob(CAMERA_BUTTON,IMAGE_FOR_LOB_800X600_PNG_PATH)
+  sleep(2)
+  logger.debug "I just attached the image with 800x600 px png format on the lob"
+
+end
+
+Then(/^I will click on Lob button to post the image$/) do
+
+  @lobbing = Lobbing.new
+  @lobbing.click_on_lob_button
+  @abstractselenium.wait_for_ajax
+  logger.debug "I just clicked on Lob button in order to post the image"
+
+end
+
+When(/^I will attach an GIF image to the lob$/) do
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.attach_image_to_lob(CAMERA_BUTTON,IMAGE_FOR_LOB_GIF_359x341_PATH)
+  sleep(2)
+  logger.debug "I just attached the image with 359x341 px GIF format on the lob"
+end
+
+When(/^I will attach an image that I will use it twice$/) do
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.attach_image_to_lob(CAMERA_BUTTON,IMAGE_FOR_LOB_1500X1000_PATH)
+  sleep(2)
+  logger.debug "I just attached the image with 1500X1000_ px jpg format on the lob"
+end
+
+When(/^I will attach and image and I will fill with text$/) do
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.attach_image_to_lob(CAMERA_BUTTON,IMAGE_FOR_LOB_800x495_PATH)
+  logger.debug "I just posted the imaged on lob text area"
+  sleep(2)
+  @abstractselenium.fill_text_area_by_class_css_with_text_and_unique_number(LOBBING_TEXT_AREA_CSS,LOB_PLUS_IMAGE_FROM_FEED)
+  logger.debug "I just filled in text on lob text area"
+end
+
+When(/^I will attach and image to post it to NBA fanzone and I will fill with text$/) do
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.attach_image_to_lob(CAMERA_BUTTON,IMAGE_TO_LOB_TO_FANZONE_NBA)
+
+  sleep(2)
+  @abstractselenium.fill_text_area_by_class_css_with_text_and_unique_number(LOBBING_TEXT_AREA_CSS,LOB_PLUS_IMAGE_TO_FANZONE)
+  logger.debug "I just filled in text on lob text area"
+
+end
+
+When(/^I will attach and image to post it to WestHam fanzone and I will fill with text$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.attach_image_to_lob(CAMERA_BUTTON,IMAGE_TO_LOB_TO_FANZONE_WESTHAM)
+
+  sleep(2)
+  @abstractselenium.fill_text_area_by_class_css_with_text_and_unique_number(LOBBING_TEXT_AREA_CSS,LOB_PLUS_IMAGE_TO_FANZONE2)
+  logger.debug "I just filled in text on lob text area"
+
+end
+
+When(/^I will fill lob text area within the fanzone view with text and I will attach a photo$/) do
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.fill_text_area_by_class_css_with_text_and_unique_number(LOBBING_TEXT_AREA_CSS,LOB_PLUS_IMAGE_FROM_FANZONE)
+  logger.debug "I just fanzone lob text area with text"
+  @abstractselenium.attach_image_to_lob(CAMERA_BUTTON,IMAGE_TO_LOB_TO_FANZONE_CLUB_BRUDGGE)
+
+end
+
+When(/^I will fill lob modal text and I will attach an image to be posted from add global modal$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.fill_text_area_by_class_css_with_text_and_unique_number(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_PLUS_IMAGE_FROM_GLOBAL_BUTTON)
+  logger.debug "I JUST FILLED IN THE GLOBAL ADD WITH CONTENT"
+  @abstractselenium.attach_image_to_lob(CAMERA_BUTTON,IMAGE_TO_LOB_TO_FOLLOWING_FOM_GLOBALL_ADD)
+  logger.debug "I just attached the image on global add modal"
+
+end
+
+When(/^I will fill lob modal text to be posted to the fanzone and I will attach an image to be posted from add global modal$/) do
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.fill_text_area_by_class_css_with_text_and_unique_number(LOBBING_TEXT_AREA_ADD_CONTENT_MODAL,LOB_PLUS_IMAGE_FROM_GLOBAL_BUTTON_TO_FANZONE)
+  logger.debug "I JUST FILLED IN THE GLOBAL ADD WITH CONTENT"
+  @abstractselenium.attach_image_to_lob(CAMERA_BUTTON,IMAGE_TO_LOB_TO_FANZONE_FOM_GLOBALL_ADD)
+  logger.debug "I just attached the image on global add modal"
+end
 
 
 

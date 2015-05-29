@@ -150,7 +150,7 @@ Feature: Posting lobs and blogs
      And I will select NBA fanzone from the list
      And I will click on Lob button
      Then I will check if the lob has been posted on the fanfeed
-     When I will havigate to the NBA fanzone
+     When I will navigate to the NBA fanzone
      Then I should be able to see my recent posted lob within the fanzone feed
 
    Scenario:Search for a fanzone and Post the lob to the fanzone and check if the lob is displayed within the fanzone feed
@@ -387,7 +387,7 @@ Feature: Posting lobs and blogs
    And I will select NBA fanzone from the list
    And I will click on Lob button
    Then I will check if the content has been posted to the fan feed
-   When I will havigate to the NBA fanzone
+   When I will navigate to the NBA fanzone
    Then I should be able to see my recent post added from global add to be visible
 
   Scenario:Search for a fanzone and Post the lob to the fanzone using global add button and check if the lob is displayed within the fanzone feed
@@ -431,7 +431,7 @@ Feature: Posting lobs and blogs
     Given I will make sure that Im on the fanfeed
     Then I will check if the lob posted from predict page has been posted
 
-     ################################################################
+   ################################################################
   #navigate to discover page and post a lob using global add button
   ################################################################
 
@@ -445,7 +445,7 @@ Feature: Posting lobs and blogs
     Given I will make sure that Im on the fanfeed
     Then I will check if the lob posted from discover page has been posted
 
-         ################################################################
+   ################################################################
   #navigate to account page and post a lob using global add button
   ################################################################
 
@@ -460,7 +460,7 @@ Feature: Posting lobs and blogs
     Then I will check if the lob posted from account page has been posted
 
 
-         ################################################################
+  ################################################################
   #navigate to account/ email notification page and post a lob using global add button
   ################################################################
 
@@ -474,7 +474,7 @@ Feature: Posting lobs and blogs
     Given I will make sure that Im on the fanfeed
     Then I will check if the lob posted from account email notifications page has been posted
 
-             ################################################################
+   ################################################################
   #navigate to account/ friends page and post a lob using global add button
   ################################################################
 
@@ -488,7 +488,7 @@ Feature: Posting lobs and blogs
     Given I will make sure that Im on the fanfeed
     Then I will check if the lob posted from account friends page has been posted
 
-                 ################################################################
+  ################################################################
   #navigate to account/ muted page and post a lob using global add button
   ################################################################
 
@@ -502,8 +502,8 @@ Feature: Posting lobs and blogs
     Given I will make sure that Im on the fanfeed
     Then I will check if the lob posted from account muted users page has been posted
 
-           ################################################################
-  #Posting images
+   ################################################################
+  #Posting a lob with jpg image and without text
   ################################################################
 
   Scenario: Posting a lob just image
@@ -513,6 +513,159 @@ Feature: Posting lobs and blogs
     When I will attach an image to the lob
     Then I will check if the image has been attached within the lob text area
     And I will select my Followers from the drop dropdown
-    And I will click on Lob button
+    And I will click on Lob button to post the image
     And I will reload the page
     Then I will check if the image has been posted
+
+   ################################################################
+  #Posting a lob with an PNG image
+  ################################################################
+
+  Scenario: Posting a lob just image, PNG format
+    Given I'm on the home feed
+    And I can see the lob text area with the text placeholder in to it
+    When I click on Lob text area
+    When I will attach an PNG image to the lob
+    Then I will check if the image has been attached within the lob text area
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button to post the image
+    And I will reload the page
+    Then I will check if the PNG image has been posted
+
+  ################################################################
+  #Posting a lob with an GIF image
+  ################################################################
+
+  Scenario: Posting a lob just image, GIF format
+    Given I'm on the home feed
+    And I can see the lob text area with the text placeholder in to it
+    When I click on Lob text area
+    When I will attach an GIF image to the lob
+    Then I will check if the image has been attached within the lob text area
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button to post the image
+    And I will reload the page
+    Then I will check if the GIF image has been posted
+
+   ################################################################
+  #Posting same image twice and check anti spamming message
+  ################################################################
+
+  Scenario: Posting 1 images twice and check the anti spamming message
+    Given I'm on the home feed
+    And I can see the lob text area with the text placeholder in to it
+    When I click on Lob text area
+    When I will attach an image that I will use it twice
+    Then I will check if the image has been attached within the lob text area
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button to post the image
+    And I will reload the page
+    Then I will check if the first image has been posted
+    When I click on Lob text area
+    When I will attach an image that I will use it twice
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button to post the image
+    Then I can see an error message that the lob has been posted
+    Then I will observe lob button and should be disabled
+    And I will clean the text area
+
+  ################################################################
+  #Posting a lob with text from fanfeed to and select my following
+  ################################################################
+
+  Scenario: Post a text with image
+    Given I'm on the home feed
+    And I can see the lob text area with the text placeholder in to it
+    When I click on Lob text area
+    When I will attach and image and I will fill with text
+    Then I will check if the image has been attached within the lob text area
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button to post the image
+    And I will reload the page
+    Then I will check if the lob text with image has been posted to the feed
+
+
+  ################################################################
+  #Posting a lob with text to a fanzone that I have it on my list
+  ################################################################
+
+  Scenario: Post a text with image on a fanzone that I have it on my list
+    Given I'm on the home feed
+    And I can see the lob text area with the text placeholder in to it
+    When I click on Lob text area
+    When I will attach and image to post it to NBA fanzone and I will fill with text
+    Then I will check if the image has been attached within the lob text area
+    And I will select NBA fanzone from the list
+    And I will click on Lob button to post the image
+    And I will reload the page
+    Then I will check if the lob text with image has been posted to the feed through NBA fanzone
+    When I will navigate to the NBA fanzone
+    Then I will check if the lob text with image has been posted to the feed through NBA fanzone
+
+  ################################################################
+  #Posting a lob with text to a fanzone that I don't have it on my list
+  ################################################################
+
+  Scenario: Post a text with image on a fanzone that I don't have it on my list
+    Given I'm on the home feed
+    And I can see the lob text area with the text placeholder in to it
+    When I click on Lob text area
+    When I will attach and image to post it to WestHam fanzone and I will fill with text
+    Then I will check if the image has been attached within the lob text area
+    And I will search for West Ham united fanzone
+    And I will select West Ham United fanzone from the list
+    And I will click on Lob button to post the image
+    And I will reload the page
+    Then I will check if the lob text with image has been posted to the feed through WestHam fanzone
+    When I will navigate to the West Ham united fanzone
+    Then I will check if the lob text with image has been posted to the feed through WestHam fanzone
+
+  ################################################################
+  #Posting a lob with text to a fanzone from fanzone view
+  ################################################################
+  Scenario: Post a text with image on a fanzone from fanzone view
+    Given I'm on the home feed
+    When I will click on Join fanzone general button
+    And I will search for Club Brugge
+    And I will click on Club Brugge fanzone within the search results
+    Then I will check if I landed on Club Brugge fanzone
+    When I click on Lob text area
+    And I will fill lob text area within the fanzone view with text and I will attach a photo
+    Then I will check if the image has been attached within the lob text area
+    And I will click on Lob button to post the image
+    And I will reload the page
+    Then I will check if the text and image has been posted on Club Brugge fanzone feed
+    Given I will make sure that Im on the fanfeed
+    Then I will check if the text and image has been posted on fanzone feed
+
+   ################################################################
+  #Posting a lob with text and image from global add
+  ################################################################
+
+  Scenario: Post a lob with image and select my following using global add button
+    Given I'm on the home feed
+    Then I will click on add content global button
+    And I will click on lob text area from the add content modal
+    When I will fill lob modal text and I will attach an image to be posted from add global modal
+    Then I will check if the image has been attached within the lob text area
+    And I will select my Followers from the drop dropdown
+    And I will click on Lob button to post the image
+    And I will reload the page
+    Then I will check if the lob text plus image has been posted from add content modal
+
+  ################################################################
+  #Posting a lob with text and image from global add to a fanzone
+  ################################################################
+
+  Scenario: Post a lob with image and select a fanzone using global add button
+    Given I'm on the home feed
+    Given I'm on the home feed
+    Then I will click on add content global button
+    And I will click on lob text area from the add content modal
+    When I will fill lob modal text to be posted to the fanzone and I will attach an image to be posted from add global modal
+    Then I will check if the image has been attached within the lob text area
+    And I will select NBA fanzone from the list
+    And I will click on Lob button to post the image
+    Then I will check if the content with image has been posted on feed
+    When I will navigate to the NBA fanzone
+    Then I will check if the content with image has been posted on feed

@@ -6,6 +6,7 @@ require 'logger'
 require './elements/account'
 require './elements/predictions_overlay'
 require './elements/leaderboards'
+require './lib/abstract_selenium'
 
 class PredictionsOverlay
 

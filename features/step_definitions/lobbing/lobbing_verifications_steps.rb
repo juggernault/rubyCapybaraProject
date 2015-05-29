@@ -332,43 +332,139 @@ Then(/^I will check if the lob posted from scores page has been posted$/) do
 
   @abstractselenium = AbstractSelenium.new
   @abstractselenium.check_if_page_has_content_unique_number(LOB_POSTED_FROM_SCORES_PAGE)
-
+  logger.debug "I just checked if lob posted to fanzone using global add , from scores page"
 end
 
 Then(/^I will check if the lob posted from predict page has been posted$/) do
 
   @abstractselenium = AbstractSelenium.new
   @abstractselenium.check_if_page_has_content_unique_number(LOB_POSTED_FROM_PREDICT_PAGE)
-
+  logger.debug "I just checked if lob posted to fanzone using global add , from predict page"
 end
 
 Then(/^I will check if the lob posted from discover page has been posted$/) do
 
   @abstractselenium = AbstractSelenium.new
   @abstractselenium.check_if_page_has_content_unique_number(LOB_POSTED_FROM_DISCOVER_PAGE)
-
+  logger.debug "I just checked if lob posted to fanzone using global add , from discover page"
 end
 
 Then(/^I will check if the lob posted from account page has been posted$/) do
 
   @abstractselenium = AbstractSelenium.new
   @abstractselenium.check_if_page_has_content_unique_number(LOB_POSTED_FROM_ACCOUNT_PAGE)
+  logger.debug "I just checked if lob posted to fanzone using global add , from account page"
 
 end
 
 Then(/^I will check if the lob posted from account email notifications page has been posted$/) do
   @abstractselenium = AbstractSelenium.new
   @abstractselenium.check_if_page_has_content_unique_number(LOB_POSTED_FROM_ACCOUNT_EMAIL_PAGE)
+  logger.debug "I just checked if lob posted to fanzone using global add , from email notifications page"
 end
 
 Then(/^I will check if the lob posted from account friends page has been posted$/) do
 
   @abstractselenium = AbstractSelenium.new
   @abstractselenium.check_if_page_has_content_unique_number(LOB_POSTED_FROM_ACCOUNT_FRIENDS_PAGE)
+  logger.debug "I just checked if lob posted to fanzone using global add , from account/friends page"
 
 end
 
 Then(/^I will check if the lob posted from account muted users page has been posted$/) do
+
   @abstractselenium = AbstractSelenium.new
   @abstractselenium.check_if_page_has_content_unique_number(LOB_POSTED_FROM_ACCOUNT_MUTED_PAGE)
+  logger.debug "I just checked if lob posted to fanzone using global add , from account muted user page"
+
+end
+
+Then(/^I will check if the image has been attached within the lob text area$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.check_if_page_has_class_css_celector(IMAGE_PREVIEW_SELECTOR)
+  logger.debug "I just checked if the image has been attched to the lob and is displayed as a preview"
+
+end
+
+Then(/^I will check if the image has been posted$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.check_image_on_the_feed(IMAGE_1646x1230)
+  logger.debug "I just check if the image has been posted in the feed"
+
+end
+
+Then(/^I will check if the PNG image has been posted$/) do
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.check_image_on_the_feed(IMAGE_800_600)
+  logger.debug "I just check if the image wit 800x600 px has been posted in the feed"
+end
+
+Then(/^I will check if the GIF image has been posted$/) do
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.check_image_on_the_feed(IMAGE_359x341)
+  logger.debug "I just check if the image wit 359x341 px has been posted in the feed"
+end
+
+Then(/^I will check if the first image has been posted$/) do
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.check_image_on_the_feed(IMAGE_1500x1000)
+  logger.debug "I just check if the image wit 1500x1000 px has been posted in the feed"
+end
+
+Then(/^I will check if the lob text with image has been posted to the feed$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.check_image_on_the_feed(IMAGE_FROM_FEED_WITH_TEXT_800x495)
+  logger.debug "I just check if the image wit 1900x1200 px has been posted in the feed"
+  @abstractselenium.check_if_page_has_content_unique_number(LOB_PLUS_IMAGE_FROM_FEED)
+
+end
+
+Then(/^I will check if the lob text with image has been posted to the feed through NBA fanzone$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.check_image_on_the_feed(IMAGE_534x400)
+  logger.debug "I just check if the image wit 534x400 px has been posted in the feed"
+  @abstractselenium.check_if_page_has_content_unique_number(LOB_PLUS_IMAGE_TO_FANZONE)
+
+end
+#IMAGE_498x480
+
+Then(/^I will check if the lob text with image has been posted to the feed through WestHam fanzone$/) do
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.check_image_on_the_feed(IMAGE_498x480)
+  logger.debug "I just check if the image wit 498x480 px has been posted in the feed"
+  @abstractselenium.check_if_page_has_content_unique_number(LOB_PLUS_IMAGE_TO_FANZONE2)
+end
+
+Then(/^I will check if the text and image has been posted on Club Brugge fanzone feed$/) do
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.check_image_on_the_feed(IMAGE_322x359)
+  logger.debug "I just check if the image wit 498x480 px has been posted in the feed"
+  @abstractselenium.check_if_page_has_content_unique_number(LOB_PLUS_IMAGE_FROM_FANZONE)
+end
+
+Then(/^I will check if the text and image has been posted on fanzone feed$/) do
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.check_image_on_the_feed(IMAGE_322x359)
+  logger.debug "I just check if the image wit 498x480 px has been posted in the feed"
+  @abstractselenium.check_if_page_has_content_unique_number(LOB_PLUS_IMAGE_FROM_FANZONE)
+end
+
+Then(/^I will check if the lob text plus image has been posted from add content modal$/) do
+
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.check_image_on_the_feed(IMAGE_626x413)
+  logger.debug "I just check if the image wit 626x413 px has been posted in the feed"
+  @abstractselenium.check_if_page_has_content_unique_number(LOB_PLUS_IMAGE_FROM_GLOBAL_BUTTON)
+
+end
+
+Then(/^I will check if the content with image has been posted on feed$/) do
+  @abstractselenium = AbstractSelenium.new
+  @abstractselenium.check_image_on_the_feed(IMAGE_780x298)
+  logger.debug "I just check if the image wit 780x298 px has been posted in the feed"
+  @abstractselenium.check_if_page_has_content_unique_number(LOB_PLUS_IMAGE_FROM_GLOBAL_BUTTON_TO_FANZONE)
 end

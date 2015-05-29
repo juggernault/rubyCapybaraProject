@@ -113,9 +113,9 @@ class AbstractSelenium
 
   #generic method page should have css selector
 
-  def check_if_page_has_css_selector(cssselector)
+  def check_if_page_has_class_css_celector(selector)
 
-    page.should have_content(cssselector)
+    page.should have_selector(selector)
 
   end
 
@@ -192,7 +192,7 @@ class AbstractSelenium
   end
 
 
-  #check if the image has been posted
+  #check if the images has been posted
   #IS RUNNING A JAVA SCRIPT IN THE CONSOLE AND IS EVALUATING THE RESULTS , OFR NOW IMAGE NAME RETURNED BY THE API
   #IS IMAGE SIZE AND ALWAYS AS A JPG , SO USING THIS SCRIPT I CAN EVALUATE IF MY IMAGE SIZE IS ON THE FEED
   #JUST NEED TO REPLACE THE IMAGE SIZE PARAMETER WHEN THE METHOD IS CALLED
@@ -203,5 +203,21 @@ class AbstractSelenium
 
   end
 
+  # wait_for_ajax method can be used in case is using ajax call and the page is not loading , to prevent
+  # fake failing of the tests you can call wait_for_ajax method and will be waiting a maximum time of 100 secodns for an ajax call
+  #finish all ajax requests method
+
+  def finished_all_ajax_requests?
+    page.evaluate_script('jQuery.active').zero?
+  end
+
+  #wait for ajax method
+
+    def wait_for_ajax
+      Capybara.default_wait_time = 100
+      Timeout.timeout(Capybara.default_wait_time) do
+      loop until finished_all_ajax_requests?
+      end
+    end
 
 end

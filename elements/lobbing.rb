@@ -32,8 +32,23 @@ module LobbingElements
   LOB_POSTED_FROM_ACCOUNT_EMAIL_PAGE ='AUTOMATED LOB POSTED FROM ACCOUNT EMAIL PAGE'
   LOB_POSTED_FROM_ACCOUNT_FRIENDS_PAGE ='AUTOMATED LOB POSTED FROM ACCOUNT FRIENDS PAGE'
   LOB_POSTED_FROM_ACCOUNT_MUTED_PAGE ='AUTOMATED LOB POSTED FROM ACCOUNT MUTED PAGE'
+  LOB_PLUS_IMAGE_FROM_FEED ='AUTOMATED LOB WITH IMAGE FORM FEED'
+  LOB_PLUS_IMAGE_TO_FANZONE ='AUTOMATED LOB WITH IMAGE TO FANZONE'
+  LOB_PLUS_IMAGE_TO_FANZONE2 ='AUTOMATED LOB WITH IMAGE TO FANZONE2'
+  LOB_PLUS_IMAGE_FROM_FANZONE ='AUTOMATED LOB WITH IMAGE FROM FANZONE'
+  LOB_PLUS_IMAGE_FROM_GLOBAL_BUTTON = 'AUTOMATED LOB WITH IMAGE FROM GLOBAL BUTTON'
+  LOB_PLUS_IMAGE_FROM_GLOBAL_BUTTON_TO_FANZONE = 'AUTOMATED LOB WITH IMAGE FROM GLOBAL BUTTON TO FANZONE'
   IMAGE_1646x1230='1646x1230'
-  IMAGE_800_600='800X600'
+  IMAGE_800_600='800x600'
+  IMAGE_FROM_FEED_WITH_TEXT_800x495 ='800x495'
+  IMAGE_1500x1000='1500x1000'
+  IMAGE_359x341='359x341'
+  IMAGE_275x183 ='275x183'
+  IMAGE_534x400='534x400'
+  IMAGE_498x480='498x480'
+  IMAGE_322x359='322x359'
+  IMAGE_626x413='626x413'
+  IMAGE_780x298='780x298'
   IMAGE_PREVIEW_SELECTOR ='#sl-new-post-form .image-preview .remove-image img'
 
 
@@ -57,10 +72,16 @@ module LobbingElements
   LOB_CONTENT_SPAMMING = './data/lobbing/lob_content_spamming.txt'
   LOB_499_GLOBAL_ADD ='./data/lobbing/lob_499_global_add.txt'
   LOB_500_GLOBAL_ADD ='./data/lobbing/lob_500_global_add.txt'
-  IMAGE_FOR_LOB_1646X1230_JPEG_PATH ='./data/lobbing/image/1646x1230.jpg'
-  IMAGE_FOR_LOB_800X600_PNG_PATH='./data/lobbing/image/png_800_600.png'
-
-
-#/Users/teddymihali/Documents/ruby_automation/rubyworkspace/sportlobster-website/sportlobster-website
+  IMAGE_FOR_LOB_1646X1230_JPEG_PATH ='./data/lobbing/images/1646x1230.jpg'
+  IMAGE_FOR_LOB_800X600_PNG_PATH='./data/lobbing/images/png_800_600.png'
+  IMAGE_FOR_LOB_1500X1000_PATH='./data/lobbing/images/nba_1500x1000.jpg'
+  IMAGE_FOR_LOB_800x495_PATH='./data/lobbing/images/image_800x495.jpg'
+  IMAGE_FOR_LOB_GIF_359x341_PATH='./data/lobbing/images/gif_359x341.gif'
+  IMAGE_TO_LOB_FROM_FANZONE_NBA='./data/lobbing/images/image_to_post_on_fanzone_275x183.jpg'
+  IMAGE_TO_LOB_TO_FANZONE_NBA='./data/lobbing/images/image_to_post_on_fanzone_534x400.jpg'
+  IMAGE_TO_LOB_TO_FANZONE_WESTHAM='./data/lobbing/images/image_to_post_on_westham_498x480.png'
+  IMAGE_TO_LOB_TO_FANZONE_CLUB_BRUDGGE ='./data/lobbing/images/club_brudgge_322x359.png'
+  IMAGE_TO_LOB_TO_FOLLOWING_FOM_GLOBALL_ADD ='./data/lobbing/images/global_to_following_626x413.png'
+  IMAGE_TO_LOB_TO_FANZONE_FOM_GLOBALL_ADD ='./data/lobbing/images/global_to_fanzone_780x298.jpg'
 
 end

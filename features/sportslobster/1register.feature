@@ -2,7 +2,7 @@
 Feature: Register with email
      Sportlobster allows users to register with an email address
 
-    Scenario: User can register with a valid email address
+  Scenario: User can register with a valid email address
         Given The user has opened the discover page
 
         Then I will check if predictions leagues overlay is displayed
@@ -22,13 +22,13 @@ Feature: Register with email
             Then I can see the error message that the email address can not be blank
             And I can see the error message that the password cannot be blank
 
-       Scenario: Check the invalid email on sign up modal
+  Scenario: Check the invalid email on sign up modal
 
             When I type an invalid email address
             And  I will click on sign up button
             Then I can see the error message that the email address is not valid
 
-       Scenario: Try to sign up with a valid email address and invalid password
+  Scenario: Try to sign up with a valid email address and invalid password
 
            When I type a valid email address
            And  I will click on sign up button
@@ -47,7 +47,7 @@ Feature: Register with email
            When I click on Join now button
 
 
-         Scenario: Just one final step modal validations
+  Scenario: Just one final step modal validations
 
            Then I am on just one final step screen
            When I click on Enter your world of sport button
@@ -93,7 +93,7 @@ Feature: Register with email
 
         Then I will click on Enter your world of sport button
 
-       Scenario: Check if pages within my user profile are empty and check the test that is supposed to be there
+  Scenario: Check if pages within my user profile are empty and check the test that is supposed to be there
 
         Given I click on user profile icon 
         Then the user fan feed is empty and the message is visible You have not lobbed any content yet
@@ -110,14 +110,14 @@ Feature: Register with email
         Given I click on photos and videos link from my profile 
         Then The empty content is opened with the message Make predictions to earn points and climb the leaderboard
 
-        Scenario:Check if Im  autofollowed by sportlobster official
+  Scenario:Check if Im  autofollowed by sportlobster official
 
         When I click on Following within my own profile page 
         Then I should see sportlobster offical followed
         When I click on Sportlobter official within my Following page
         Then I will be redirected to Sportlobster official page
 
-         Scenario: Check the text and the empty feed within the fanzone and fallowing tabs
+  Scenario: Check the text and the empty feed within the fanzone and fallowing tabs
 
         Given  I will navigate to Home feed 
         Then I should have my fanzones feed empty with the tutorial text

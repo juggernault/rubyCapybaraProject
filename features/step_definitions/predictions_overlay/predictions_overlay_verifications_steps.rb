@@ -1,7 +1,9 @@
 require './pages/predictions_overlay'
+require './lib/abstract_selenium'
+include JoinFanzoneElements
+include LobbingElements
 
 Then(/^I will check if predictions leagues overlay is displayed$/) do
-
 
 
   @predictions_overlay =  PredictionsOverlay.new

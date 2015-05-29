@@ -8,6 +8,7 @@ require './pages/account'
 require './elements/account'
 require './elements/lobbing'
 require './elements/join_fanzone'
+require 'selenium/client/driver'
 
 class Lobbing
 
